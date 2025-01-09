@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Controls</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f5f5f5;
+        }
+        .controls-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .control-button {
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: #005386;
+            color: white;
+        }
+        .control-button:hover {
+            background-color: #003d61;
+        }
+        .control-button.active {
+            background-color: #00ff00;
+        }
+        h2 {
+            color: #005386;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls-container">
+        <h2>3D Element Controls</h2>
+        <div class="button-grid">
+            <button id="toBeStationsBtn" class="control-button" onclick="handleToBeStations()">
+                🔧 ToBeStations
+            </button>
+            <button id="ghostBtn" class="control-button" onclick="handleGhost()">
+                👻 videoleader off
+            </button>
+            <button id="webpageBtn" class="control-button" onclick="handleWebPage()">
+                🌐 WebPage off to be on
+            </button>
+            <button id="kpisBtn" class="control-button" onclick="handleKPIs()">
+                📈 Ghost off
+            
+            <button id="animBtn" class="control-button" onclick="handleAnimation()">
+                🎬 Animation
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour envoyer un message de visibilité
+        function toggleVisibility(actorName, visible) {
+            window.parent.postMessage(JSON.stringify({
+                action: "toggleVisibility",
+                actor: actorName,
+                visible: visible
+            }), "*");
+        }
+
+        let dollhouseActive = false;
+        let toBeStationsActive = false;
+        let webPageActive = false;
+        let toBeLineActive = false;
+        let kpisActive = false;
+        let ghostActive = false;
+
+        // Fonction pour ToBeStations
+        function handleToBeStations() {
+            toBeStationsActive = !toBeStationsActive;
+            document.getElementById('toBeStationsBtn').classList.toggle('active');
+            toggleVisibility("ASISLine", false);
+            toggleVisibility("ToBeStations", true);
+        }
+
+        // Fonction pour Ghost
+        function handleGhost() {
+            ghostActive = !ghostActive;
+            document.getElementById('ghostBtn').classList.toggle('active');
+            toggleVisibility("WebVideo", false);
+        }
+
+        // Fonction pour WebPage
+        function handleWebPage() {
+            webPageActive = !webPageActive;
+            document.getElementById('webpageBtn').classList.toggle('active');
+            toggleVisibility("UShape_Ghost", false);
+            toggleVisibility("Dollhouse", false);
+            toggleVisibility("TO BE LINE", true);
+            toggleVisibility("WebpageKPIs", false);
+            toggleVisibility("WebpageLevers", false);
+            toggleVisibility("WebpageW", false);
+			toggleVisibility("WebpageKPIsTOBE", true);
+			const message = {
+                action: "playAnimation",
+                actor: "TOBELine",
+                animation: "NewLoop"
+            };
+        }
+
+        // Fonction pour KPIs
+        function handleKPIs() {
+            kpisActive = !kpisActive;
+            document.getElementById('kpisBtn').classList.toggle('active');
+			toggleVisibility("UShape_Ghost", false);
+        }
+
+        // Fonction pour Dollhouse
+        function handleDollhouse() {
+            dollhouseActive = !dollhouseActive;
+            document.getElementById('dollhouseBtn').classList.toggle('active');
+            toggleVisibility("WebpageKPIsTOBE", true);
+            toggleVisibility("Dollhouse", false);
+            toggleVisibility("TO BE LINE", true);
+			const message = {
+                action: "playAnimation",
+                actor: "TOBELine",
+                animation: "NewLoop"
+            };
+            toggleVisibility("WebpageKPIs", false);
+            toggleVisibility("WebpageLevers", false);
+            toggleVisibility("WebpageW", false);
+			window.parent.postMessage(JSON.stringify(message), "*");
+        }
+
+        // Fonction pour ToBeLine
+        function handleToBeLine() {
+            toBeLineActive = !toBeLineActive;
+            document.getElementById('toBeLineBtn').classList.toggle('active');
+            toggleVisibility("UShape_Ghost", false);
+            window.parent.postMessage(JSON.stringify(message), "*");
+        }
+
+        // Fonction pour lancer l'animation NewLoop
+        function handleAnimation() {
+            const message = {
+                action: "playAnimation",
+                actor: "TOBELine",
+                animation: "NewLoop"
+            };
+            window.parent.postMessage(JSON.stringify(message), "*");
+        }
+    </script>
+</body>
+</html>
