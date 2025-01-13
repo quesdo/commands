@@ -135,37 +135,13 @@
             text-align: center;
             margin: 2rem 0;
         }
-
-        @media (max-width: 768px) {
-            .container {
-                width: 95%;
-                padding: 1rem;
-            }
-
-            .dialogue {
-                padding: 1rem;
-            }
-
-            .character {
-                font-size: 1.0rem;
-            }
-
-            .text {
-                font-size: 1.5rem;
-            }
-
-            .nav-button {
-                padding: 0.8rem 1.5rem;
-                font-size: 1.2rem;
-                min-width: 150px;
-            }
-        }
     </style>
 </head>
 <body>
+    <!-- Page 1 -->
     <div id="page1" class="section active">
         <div class="container">
-            <div class="page-number">1/4</div>
+            <div class="page-number">1/5</div>
 
             <div class="dialogue philippe">
                 <div class="character">Philippe Bartissol</div>
@@ -187,13 +163,18 @@
 
             <div class="dialogue philippe">
                 <div class="character">Philippe Bartissol</div>
-                
                 <div class="text">(with a snarl) Does not look too good.</div>
             </div>
+        </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div id="page2" class="section">
+        <div class="container">
+            <div class="page-number">2/5</div>
 
             <div class="dialogue">
                 <div class="character">Guillaume Vendroux</div>
-                
                 <div class="text">So let's see what we can do, starting with the most important, Quality. The problem here on the shopfloor is diversity. Much too much so people make mistake during assembly. What do you suggest?</div>
             </div>
 
@@ -214,16 +195,9 @@
 
             <div class="dialogue">
                 <div class="character">Guillaume Vendroux</div>
-                
                 <div class="text">Augmented Reality to help people pick the proper option. But that will not be enough, see? So what else?</div>
             </div>
-        </div>
-    </div>
 
-    <div id="page2" class="section">
-        <div class="container">
-            <div class="page-number">2/4</div>
-            
             <div class="dialogue philippe">
                 <div class="character">Philippe Bartissol</div>
                 <div class="text">Euh?</div>
@@ -232,8 +206,18 @@
             <div class="dialogue">
                 <div class="character">Guillaume Vendroux</div>
                 <div class="text">"Kitting</div>
-                
                 <div class="text">pre-selected tray of part per option to avoid mistakes. That should do it with minimum investment.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3 -->
+    <div id="page3" class="section">
+        <div class="container">
+            <div class="page-number">3/5</div>
+            
+            <div class="dialogue">
+                <div class="character">Guillaume Vendroux</div>
                 <div class="text">we are right on target : so quality done.</div>
                 <div class="text">Let's look at Planning Adherence, important if we want to keep our logistic cost down and avoid special transport.</div>
                 <div class="text">The problem here is avoiding idle time So what do you suggest?</div>
@@ -260,17 +244,18 @@
                 <div class="text action">(CFO clicks)</div>
                 <div class="text">it will sync material flow and operation. And if we add up a little automation…</div>
             </div>
-        </div>
-    </div>
 
-    <div id="page3" class="section">
-        <div class="container">
-            <div class="page-number">3/4</div>
-            
             <div class="dialogue philippe">
                 <div class="character">Philippe Bartissol</div>
                 <div class="text">wait automation is expensive</div>
             </div>
+        </div>
+    </div>
+
+    <!-- Page 4 -->
+    <div id="page4" class="section">
+        <div class="container">
+            <div class="page-number">4/5</div>
 
             <div class="dialogue">
                 <div class="character">Guillaume Vendroux</div>
@@ -315,9 +300,10 @@
         </div>
     </div>
 
-    <div id="page4" class="section">
+    <!-- Page 5 -->
+    <div id="page5" class="section">
         <div class="container">
-            <div class="page-number">4/4</div>
+            <div class="page-number">5/5</div>
             
             <div class="dialogue philippe">
                 <div class="character">Philippe Bartissol</div>
@@ -343,20 +329,14 @@
 
             <div class="dialogue philippe">
                 <div class="character">Philippe Bartissol</div>
-				<div class="text">See and i'm just a CFO if I can do it anyone can do it</div>
-                
-            </div>
-			<div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-				
+                <div class="text">See and i'm just a CFO if I can do it anyone can do it</div>
                 <div class="text">here we go Chief (enthusiastic)</div>
-                
             </div>
 
             <div class="dialogue">
                 <div class="character">Guillaume Vendroux</div>
                 <div class="text">and yes we reach our target, look</div>
-				<div class="text">Let's verify with the simulation</div>
+                <div class="text">Let's verify with the simulation</div>
                 <div class="text">wait 5S - Simulation Starts</div>
                 <div class="text">This is the way the line will operate, the virtual twin of the manufacturing interacting with the virtual twin of the product to achieve the required performance</div>
             </div>
@@ -364,7 +344,6 @@
             <div class="dialogue philippe">
                 <div class="character">Philippe Bartissol</div>
                 <div class="text">Qcd on quality on cost on time for delivery</div>
-                
             </div>
 
             <div class="dialogue">
@@ -384,6 +363,138 @@
         <button onclick="nextPage()" class="nav-button" id="nextBtn">Suivant →</button>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        const totalPages = 5; // Updated to 5 pages
+        let currentPage = 1;
+        
+        function showPage(pageNum) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(`page${pageNum}`).classList.add('active');
+            
+            document.getElementById('prevBtn').disabled = pageNum === 1;
+            document.getElementById('nextBtn').disabled = pageNum === totalPages;
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'Space') {
+                nextPage();
+            } else if (e.key === 'ArrowLeft') {
+                prevPage();
+            }
+        });
+
+        // Configuration Supabase
+        const supabaseUrl = 'https://kikivfglslrobwttvlvn.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtpa2l2Zmdsc2xyb2J3dHR2bHZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ1MTIwNDQsImV4cCI6MjA1MDA4ODA0NH0.Njo06GXSyZHjpjRwPJ2zpElJ88VYgqN2YYDfTJnBQ6k';
+
+        // Création du client Supabase
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+        // Initialisation et souscription aux changements
+        async function initializePageSync() {
+            try {
+                console.log('Initializing page sync...');
+                
+                // Création et souscription au canal Supabase
+                const channel = supabaseClient.channel('db-changes')
+                    .on(
+                        'postgres_changes',
+                        {
+                            event: '*',
+                            schema: 'public',
+                            table: 'prompter_state'
+                        },
+                        (payload) => {
+                            console.log('Received change:', payload);
+                            if (payload.new && payload.new.current_page !== currentPage) {
+                                showPage(payload.new.current_page);
+                                currentPage = payload.new.current_page;
+                            }
+                        }
+                    )
+                    .subscribe((status) => {
+                        console.log('Channel status:', status);
+                    });
+
+                // Récupération de l'état initial
+                const { data, error } = await supabaseClient
+                    .from('prompter_state')
+                    .select('current_page')
+                    .eq('id', 1)
+                    .single();
+
+                if (error) {
+                    console.error('Error fetching initial state:', error);
+                    throw error;
+                }
+
+                console.log('Initial data:', data);
+                if (data) {
+                    showPage(data.current_page);
+                    currentPage = data.current_page;
+                }
+            } catch (error) {
+                console.error('Error in initializePageSync:', error);
+            }
+        }
+
+        // Mise à jour de la page dans Supabase
+        async function updatePageInDatabase(pageNum) {
+            try {
+                console.log('Attempting to update page to:', pageNum);
+                const { data, error } = await supabaseClient
+                    .from('prompter_state')
+                    .upsert({ 
+                        id: 1, 
+                        current_page: pageNum 
+                    })
+                    .select()
+                    .single();
+
+                if (error) {
+                    console.error('Update error:', error);
+                    throw error;
+                }
+
+                console.log('Update successful:', data);
+                return data;
+            } catch (error) {
+                console.error('Error in updatePageInDatabase:', error);
+            }
+        }
+
+        // Modification de la fonction showPage pour inclure la mise à jour de la base de données
+        function showPage(pageNum) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(`page${pageNum}`).classList.add('active');
+            
+            document.getElementById('prevBtn').disabled = pageNum === 1;
+            document.getElementById('nextBtn').disabled = pageNum === totalPages;
+
+            // Mise à jour de la base de données
+            updatePageInDatabase(pageNum);
+        }
+
+        // Initialisation au chargement de la page
+        document.addEventListener('DOMContentLoaded', initializePageSync);
+    </script>
 </body>
 </html>
