@@ -3,10 +3,10 @@ const supabaseUrl = 'https://kikivfglslrobwttvlvn.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtpa2l2Zmdsc2xyb2J3dHR2bHZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ1MTIwNDQsImV4cCI6MjA1MDA4ODA0NH0.Njo06GXSyZHjpjRwPJ2zpElJ88VYgqN2YYDfTJnBQ6k';
 
 // Variables globales
-window.currentPage = 1;
-const totalPages = 4;
+let currentPage = 1;
+const totalPages = 5;
 
-// Création du client Supabase - même approche que votre code qui fonctionne
+// Création du client Supabase
 const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
 // Initialisation et souscription aux changements
@@ -25,9 +25,9 @@ async function initializePageSync() {
                 },
                 (payload) => {
                     console.log('Received change:', payload);
-                    if (payload.new && payload.new.current_page !== window.currentPage) {
+                    if (payload.new && payload.new.current_page !== currentPage) {
                         showPage(payload.new.current_page, false);
-                        window.currentPage = payload.new.current_page;
+                        currentPage = payload.new.current_page;
                     }
                 }
             )
@@ -50,7 +50,7 @@ async function initializePageSync() {
         console.log('Initial data:', data);
         if (data) {
             showPage(data.current_page, false);
-            window.currentPage = data.current_page;
+            currentPage = data.current_page;
         }
     } catch (error) {
         console.error('Error in initializePageSync:', error);
@@ -82,6 +82,7 @@ async function updatePageInDatabase(pageNum) {
     }
 }
 
+// Fonction d'affichage des pages
 function showPage(pageNum, updateDb = true) {
     console.log('Showing page:', pageNum, 'updateDb:', updateDb);
     document.querySelectorAll('.section').forEach(section => {
@@ -99,18 +100,18 @@ function showPage(pageNum, updateDb = true) {
 
 // Fonctions de navigation
 window.nextPage = function() {
-    console.log('Next page clicked. Current page:', window.currentPage);
-    if (window.currentPage < totalPages) {
-        window.currentPage++;
-        showPage(window.currentPage);
+    console.log('Next page clicked. Current page:', currentPage);
+    if (currentPage < totalPages) {
+        currentPage++;
+        showPage(currentPage);
     }
 };
 
 window.prevPage = function() {
-    console.log('Previous page clicked. Current page:', window.currentPage);
-    if (window.currentPage > 1) {
-        window.currentPage--;
-        showPage(window.currentPage);
+    console.log('Previous page clicked. Current page:', currentPage);
+    if (currentPage > 1) {
+        currentPage--;
+        showPage(currentPage);
     }
 };
 
@@ -123,5 +124,5 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Initialisation
+// Initialisation au chargement de la page
 document.addEventListener('DOMContentLoaded', initializePageSync);

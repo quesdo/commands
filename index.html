@@ -16,14 +16,16 @@
 
         body {
             background: #f0f2f5;
-            min-height: 100vh;
-            overflow-x: hidden;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .section {
             display: none;
-            min-height: calc(100vh - 100px);
-            padding: 2rem 0;
+            height: calc(100vh - 80px);
+            overflow: hidden;
         }
 
         .section.active {
@@ -31,30 +33,41 @@
         }
 
         .container {
+            height: 100%;
             width: 90%;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             background: white;
             border-radius: 12px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 2rem;
+            padding: 1.5vh;
             position: relative;
-            margin-bottom: 100px;
+            overflow-y: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .page-number {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.2rem;
+            top: 1vh;
+            right: 1vh;
+            font-size: min(2vh, 1.2rem);
             color: #666;
         }
 
+        .dialogue-container {
+            flex: 1;
+            overflow-y: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 1vh;
+        }
+
         .dialogue {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
+            padding: 1vh;
             border-radius: 8px;
             border-left: 6px solid #e5e7eb;
+            flex-shrink: 0;
         }
 
         .philippe {
@@ -64,54 +77,52 @@
 
         .character {
             font-weight: bold;
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
+            font-size: min(2.5vh, 1.5rem);
+            margin-bottom: 0.5vh;
             color: #374151;
         }
 
         .philippe .character {
             color: #92400e;
-            font-size: 1.6rem;
+            font-size: min(2.8vh, 1.6rem);
         }
 
         .text {
-            line-height: 1.6;
+            line-height: 1.4;
             color: #4b5563;
-            font-size: 1.3rem;
+            font-size: min(2.2vh, 1.3rem);
         }
 
         .philippe .text {
             color: #92400e;
-            font-size: 1.9rem;
+            font-size: min(2.8vh, 1.6rem);
         }
 
         .navigation {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            height: 80px;
             display: flex;
             justify-content: center;
             gap: 2rem;
-            padding: 1.5rem;
+            padding: 1rem;
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
             z-index: 1000;
+            flex-shrink: 0;
         }
 
         .nav-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem 2rem;
-            font-size: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            font-size: min(2.5vh, 1.5rem);
             background-color: #2563eb;
             color: white;
             text-decoration: none;
             border-radius: 12px;
             font-weight: bold;
             transition: transform 0.2s;
-            min-width: 200px;
+            min-width: 180px;
             border: none;
             cursor: pointer;
         }
@@ -129,11 +140,11 @@
         }
 
         .action-cfo {
-            font-size: 2.5rem;
+            font-size: min(3.5vh, 2.5rem);
             font-weight: bold;
             color: #2563eb;
             text-align: center;
-            margin: 2rem 0;
+            margin: 1vh 0;
         }
     </style>
 </head>
@@ -142,28 +153,29 @@
     <div id="page1" class="section active">
         <div class="container">
             <div class="page-number">1/5</div>
+            <div class="dialogue-container">
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">What's this? Where am I?</div>
+                </div>
 
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">What's this? Where am I?</div>
-            </div>
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">Welcome to our Virtual NIAR Factory…What you see in front of you, the doll house, is our line 2, the one we want to upgrade.</div>
+                </div>
 
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">Welcome to our Virtual NIAR Factory…What you see in front of you, the doll house, is our line 2, the one we want to upgrade.</div>
-            </div>
+                <div class="text">Start video [seq4] "as is" on right slide</div>
 
-            <div class="text">Start video [seq4] "as is" on right slide</div>
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">This is currently a paper-based operation, no automation, with classical problems of material flow disruption, lack of sync between the station, lack of help to manage quality.</div>
+                    <div class="text">On the bar chart on the right is its current level of performance and the red line is our target.</div>
+                </div>
 
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">This is currently a paper-based operation, no automation, with classical problems of material flow disruption, lack of sync between the station, lack of help to manage quality.</div>
-                <div class="text">On the bar chart on the right is its current level of performance and the red line is our target.</div>
-            </div>
-
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">(with a snarl) Does not look too good.</div>
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">(with a snarl) Does not look too good.</div>
+                </div>
             </div>
         </div>
     </div>
@@ -172,41 +184,42 @@
     <div id="page2" class="section">
         <div class="container">
             <div class="page-number">2/5</div>
+            <div class="dialogue-container">
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">So let's see what we can do, starting with the most important, Quality. The problem here on the shopfloor is diversity. Much too much so people make mistake during assembly. What do you suggest?</div>
+                </div>
 
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">So let's see what we can do, starting with the most important, Quality. The problem here on the shopfloor is diversity. Much too much so people make mistake during assembly. What do you suggest?</div>
-            </div>
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">I don't know…that's not my job…</div>
+                </div>
 
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">I don't know…that's not my job…</div>
-            </div>
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">come on - look at the list and pick the option?</div>
+                </div>
 
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">come on - look at the list and pick the option?</div>
-            </div>
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">(timid) assembly Guidance?</div>
+                </div>
 
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">(timid) assembly Guidance?</div>
-            </div>
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">Augmented Reality to help people pick the proper option. But that will not be enough, see? So what else?</div>
+                </div>
 
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">Augmented Reality to help people pick the proper option. But that will not be enough, see? So what else?</div>
-            </div>
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">Euh?</div>
+                </div>
 
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">Euh?</div>
-            </div>
-
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">"Kitting</div>
-                <div class="text">pre-selected tray of part per option to avoid mistakes. That should do it with minimum investment.</div>
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">"Kitting</div>
+                    <div class="text">pre-selected tray of part per option to avoid mistakes. That should do it with minimum investment.</div>
+                </div>
             </div>
         </div>
     </div>
@@ -215,39 +228,40 @@
     <div id="page3" class="section">
         <div class="container">
             <div class="page-number">3/5</div>
-            
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">we are right on target : so quality done.</div>
-                <div class="text">Let's look at Planning Adherence, important if we want to keep our logistic cost down and avoid special transport.</div>
-                <div class="text">The problem here is avoiding idle time So what do you suggest?</div>
-            </div>
+            <div class="dialogue-container">
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">we are right on target : so quality done.</div>
+                    <div class="text">Let's look at Planning Adherence, important if we want to keep our logistic cost down and avoid special transport.</div>
+                    <div class="text">The problem here is avoiding idle time So what do you suggest?</div>
+                </div>
 
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">Call the part just in time?</div>
-            </div>
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">Call the part just in time?</div>
+                </div>
 
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">yes and what will do that?</div>
-            </div>
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">yes and what will do that?</div>
+                </div>
 
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">no clue… a good planner (sarcastic)</div>
-            </div>
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">no clue… a good planner (sarcastic)</div>
+                </div>
 
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">indeed we call that a Manufacturing operation management</div>
-                <div class="text action">(CFO clicks)</div>
-                <div class="text">it will sync material flow and operation. And if we add up a little automation…</div>
-            </div>
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">indeed we call that a Manufacturing operation management</div>
+                    <div class="text action">(CFO clicks)</div>
+                    <div class="text">it will sync material flow and operation. And if we add up a little automation…</div>
+                </div>
 
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">wait automation is expensive</div>
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">wait automation is expensive</div>
+                </div>
             </div>
         </div>
     </div>
@@ -256,46 +270,47 @@
     <div id="page4" class="section">
         <div class="container">
             <div class="page-number">4/5</div>
+            <div class="dialogue-container">
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">but now affordable look</div>
+                    <div class="text">(CFO clicks on option and invest barely move to the 2% line)</div>
+                    <div class="text">so we have the quality, the planning adherence, remain the productivity</div>
+                </div>
 
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">but now affordable look</div>
-                <div class="text">(CFO clicks on option and invest barely move to the 2% line)</div>
-                <div class="text">so we have the quality, the planning adherence, remain the productivity</div>
-            </div>
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">but we cannot invest more, remember no more that 2%</div>
+                </div>
 
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">but we cannot invest more, remember no more that 2%</div>
-            </div>
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">well you're gonna have to use your brain</div>
+                    <div class="text">Modules of the new lines appear on the table</div>
+                    <div class="text">In front of you are the production module with the chosen option.</div>
+                    <div class="text action-cfo">CFO MANIPULATES THE MODULES</div>
+                    <div class="text">How should you position them to maximize operational time vs transit time?</div>
+                </div>
 
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">well you're gonna have to use your brain</div>
-                <div class="text">Modules of the new lines appear on the table</div>
-                <div class="text">In front of you are the production module with the chosen option.</div>
-                <div class="text action-cfo">CFO MANIPULATES THE MODULES</div>
-                <div class="text">How should you position them to maximize operational time vs transit time?</div>
-            </div>
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">euh ? I do not know….i know Excel and ERP, not production, i do not have a manufacturing brain,</div>
+                </div>
 
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">euh ? I do not know….i know Excel and ERP, not production, i do not have a manufacturing brain,</div>
-            </div>
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">You want one?</div>
+                </div>
 
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">You want one?</div>
-            </div>
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">Want what?</div>
+                </div>
 
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">Want what?</div>
-            </div>
-
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">Manufacturing brain?</div>
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">Manufacturing brain?</div>
+                </div>
             </div>
         </div>
     </div>
@@ -304,56 +319,57 @@
     <div id="page5" class="section">
         <div class="container">
             <div class="page-number">5/5</div>
-            
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">euh?</div>
-            </div>
+            <div class="dialogue-container">
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">euh?</div>
+                </div>
 
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">click on W, that will give you the best manufacturing brain of the company, a virtual companion that has all our knowledge capitalized... Try</div>
-            </div>
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">click on W, that will give you the best manufacturing brain of the company, a virtual companion that has all our knowledge capitalized... Try</div>
+                </div>
 
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">(he clicks)</div>
-                <div class="text">Ghost appears</div>
-                <div class="text">U layout? To shorten distance between station…ah I get it</div>
-            </div>
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">(he clicks)</div>
+                    <div class="text">Ghost appears</div>
+                    <div class="text">U layout? To shorten distance between station…ah I get it</div>
+                </div>
 
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">position the station as outlined</div>
-            </div>
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">position the station as outlined</div>
+                </div>
 
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">See and i'm just a CFO if I can do it anyone can do it</div>
-                <div class="text">here we go Chief (enthusiastic)</div>
-            </div>
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">See and i'm just a CFO if I can do it anyone can do it</div>
+                    <div class="text">here we go Chief (enthusiastic)</div>
+                </div>
 
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">and yes we reach our target, look</div>
-                <div class="text">Let's verify with the simulation</div>
-                <div class="text">wait 5S - Simulation Starts</div>
-                <div class="text">This is the way the line will operate, the virtual twin of the manufacturing interacting with the virtual twin of the product to achieve the required performance</div>
-            </div>
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">and yes we reach our target, look</div>
+                    <div class="text">Let's verify with the simulation</div>
+                    <div class="text">wait 5S - Simulation Starts</div>
+                    <div class="text">This is the way the line will operate, the virtual twin of the manufacturing interacting with the virtual twin of the product to achieve the required performance</div>
+                </div>
 
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">Qcd on quality on cost on time for delivery</div>
-            </div>
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">Qcd on quality on cost on time for delivery</div>
+                </div>
 
-            <div class="dialogue">
-                <div class="character">Guillaume Vendroux</div>
-                <div class="text">And Look it is virtual…but it is real, Virtual world for real life no paper, automation where needed, Quality control….</div>
-            </div>
+                <div class="dialogue">
+                    <div class="character">Guillaume Vendroux</div>
+                    <div class="text">And Look it is virtual…but it is real, Virtual world for real life no paper, automation where needed, Quality control….</div>
+                </div>
 
-            <div class="dialogue philippe">
-                <div class="character">Philippe Bartissol</div>
-                <div class="text">(removing his mask)</div>
+                <div class="dialogue philippe">
+                    <div class="character">Philippe Bartissol</div>
+                    <div class="text">(removing his mask)</div>
+                </div>
             </div>
         </div>
     </div>
@@ -363,138 +379,6 @@
         <button onclick="nextPage()" class="nav-button" id="nextBtn">Suivant →</button>
     </div>
 
-    <script>
-        const totalPages = 5; // Updated to 5 pages
-        let currentPage = 1;
-        
-        function showPage(pageNum) {
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(`page${pageNum}`).classList.add('active');
-            
-            document.getElementById('prevBtn').disabled = pageNum === 1;
-            document.getElementById('nextBtn').disabled = pageNum === totalPages;
-        }
-
-        function nextPage() {
-            if (currentPage < totalPages) {
-                currentPage++;
-                showPage(currentPage);
-            }
-        }
-
-        function prevPage() {
-            if (currentPage > 1) {
-                currentPage--;
-                showPage(currentPage);
-            }
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === 'Space') {
-                nextPage();
-            } else if (e.key === 'ArrowLeft') {
-                prevPage();
-            }
-        });
-
-        // Configuration Supabase
-        const supabaseUrl = 'https://kikivfglslrobwttvlvn.supabase.co';
-        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtpa2l2Zmdsc2xyb2J3dHR2bHZuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ1MTIwNDQsImV4cCI6MjA1MDA4ODA0NH0.Njo06GXSyZHjpjRwPJ2zpElJ88VYgqN2YYDfTJnBQ6k';
-
-        // Création du client Supabase
-        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-
-        // Initialisation et souscription aux changements
-        async function initializePageSync() {
-            try {
-                console.log('Initializing page sync...');
-                
-                // Création et souscription au canal Supabase
-                const channel = supabaseClient.channel('db-changes')
-                    .on(
-                        'postgres_changes',
-                        {
-                            event: '*',
-                            schema: 'public',
-                            table: 'prompter_state'
-                        },
-                        (payload) => {
-                            console.log('Received change:', payload);
-                            if (payload.new && payload.new.current_page !== currentPage) {
-                                showPage(payload.new.current_page);
-                                currentPage = payload.new.current_page;
-                            }
-                        }
-                    )
-                    .subscribe((status) => {
-                        console.log('Channel status:', status);
-                    });
-
-                // Récupération de l'état initial
-                const { data, error } = await supabaseClient
-                    .from('prompter_state')
-                    .select('current_page')
-                    .eq('id', 1)
-                    .single();
-
-                if (error) {
-                    console.error('Error fetching initial state:', error);
-                    throw error;
-                }
-
-                console.log('Initial data:', data);
-                if (data) {
-                    showPage(data.current_page);
-                    currentPage = data.current_page;
-                }
-            } catch (error) {
-                console.error('Error in initializePageSync:', error);
-            }
-        }
-
-        // Mise à jour de la page dans Supabase
-        async function updatePageInDatabase(pageNum) {
-            try {
-                console.log('Attempting to update page to:', pageNum);
-                const { data, error } = await supabaseClient
-                    .from('prompter_state')
-                    .upsert({ 
-                        id: 1, 
-                        current_page: pageNum 
-                    })
-                    .select()
-                    .single();
-
-                if (error) {
-                    console.error('Update error:', error);
-                    throw error;
-                }
-
-                console.log('Update successful:', data);
-                return data;
-            } catch (error) {
-                console.error('Error in updatePageInDatabase:', error);
-            }
-        }
-
-        // Modification de la fonction showPage pour inclure la mise à jour de la base de données
-        function showPage(pageNum) {
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(`page${pageNum}`).classList.add('active');
-            
-            document.getElementById('prevBtn').disabled = pageNum === 1;
-            document.getElementById('nextBtn').disabled = pageNum === totalPages;
-
-            // Mise à jour de la base de données
-            updatePageInDatabase(pageNum);
-        }
-
-        // Initialisation au chargement de la page
-        document.addEventListener('DOMContentLoaded', initializePageSync);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
