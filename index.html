@@ -128,6 +128,14 @@
             opacity: 0.5;
         }
 
+        .action-cfo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2563eb;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
         @media (max-width: 768px) {
             .container {
                 width: 95%;
@@ -158,39 +166,56 @@
     <div id="page1" class="section active">
         <div class="container">
             <div class="page-number">1/4</div>
+
             <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
-                <div class="text">What's this ? Where am I ?</div>
+                <div class="character">Philippe Bartissol</div>
+                <div class="text">What's this? Where am I?</div>
             </div>
 
             <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">Welcome to our Virtual NIAR Factory…What you see in front of you, the doll house, is the virtual twin of our line 2, among the one we want to upgrade.</div>
+                <div class="character">Guillaume Vendroux</div>
+                <div class="text">Welcome to our Virtual NIAR Factory…What you see in front of you, the doll house, is our line 2, the one we want to upgrade.</div>
+            </div>
+
+            <div class="text">Start video [seq4] "as is" on right slide</div>
+
+            <div class="dialogue">
+                <div class="character">Guillaume Vendroux</div>
+                <div class="text">This is currently a paper-based operation, no automation, with classical problems of material flow disruption, lack of sync between the station, lack of help to manage quality.</div>
+                <div class="text">On the bar chart on the right is its current level of performance and the red line is our target.</div>
             </div>
 
             <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
+                <div class="character">Philippe Bartissol</div>
+                
+                <div class="text">(with a snarl) Does not look too good.</div>
+            </div>
+
+            <div class="dialogue">
+                <div class="character">Guillaume Vendroux</div>
+                
+                <div class="text">So let's see what we can do, starting with the most important, Quality. The problem here on the shopfloor is diversity. Much too much so people make mistake during assembly. What do you suggest?</div>
+            </div>
+
+            <div class="dialogue philippe">
+                <div class="character">Philippe Bartissol</div>
                 <div class="text">I don't know…that's not my job…</div>
             </div>
 
             <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">come on - look at the list and pick the option ?</div>
+                <div class="character">Guillaume Vendroux</div>
+                <div class="text">come on - look at the list and pick the option?</div>
             </div>
 
             <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
-                <div class="text">(timid) assembly Assistance ?</div>
+                <div class="character">Philippe Bartissol</div>
+                <div class="text">(timid) assembly Guidance?</div>
             </div>
 
             <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">indeed</div>
-            </div>
-
-            <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">AR to help people pick the proper option. But that will not be enough, see ? So what else ?</div>
+                <div class="character">Guillaume Vendroux</div>
+                
+                <div class="text">Augmented Reality to help people pick the proper option. But that will not be enough, see? So what else?</div>
             </div>
         </div>
     </div>
@@ -198,43 +223,41 @@
     <div id="page2" class="section">
         <div class="container">
             <div class="page-number">2/4</div>
+            
             <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
-                <div class="text">Euh ?</div>
+                <div class="character">Philippe Bartissol</div>
+                <div class="text">Euh?</div>
             </div>
 
             <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">Kitting</div>
-            </div>
-
-            <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">pre selected tray of part per option. That should do it with minimum investment. OK so quality done. Let's look at Delivery, important if we want to keep our logistic cost down and avoid special transport. The problem here is avoiding waiting time So what do you suggest ?</div>
-            </div>
-
-            <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
-                <div class="text">Call the part just in time ?</div>
-            </div>
-
-            <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">yes and what will do that ?</div>
+                <div class="character">Guillaume Vendroux</div>
+                <div class="text">"Kitting</div>
+                
+                <div class="text">pre-selected tray of part per option to avoid mistakes. That should do it with minimum investment.</div>
+                <div class="text">we are right on target : so quality done.</div>
+                <div class="text">Let's look at Planning Adherence, important if we want to keep our logistic cost down and avoid special transport.</div>
+                <div class="text">The problem here is avoiding idle time So what do you suggest?</div>
             </div>
 
             <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
+                <div class="character">Philippe Bartissol</div>
+                <div class="text">Call the part just in time?</div>
+            </div>
+
+            <div class="dialogue">
+                <div class="character">Guillaume Vendroux</div>
+                <div class="text">yes and what will do that?</div>
+            </div>
+
+            <div class="dialogue philippe">
+                <div class="character">Philippe Bartissol</div>
                 <div class="text">no clue… a good planner (sarcastic)</div>
             </div>
 
             <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">indeed we call that a Manufacturing operation management,</div>
-            </div>
-
-            <div class="dialogue">
-                <div class="character">Guillaume</div>
+                <div class="character">Guillaume Vendroux</div>
+                <div class="text">indeed we call that a Manufacturing operation management</div>
+                <div class="text action">(CFO clicks)</div>
                 <div class="text">it will sync material flow and operation. And if we add up a little automation…</div>
             </div>
         </div>
@@ -243,54 +266,51 @@
     <div id="page3" class="section">
         <div class="container">
             <div class="page-number">3/4</div>
+            
             <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
+                <div class="character">Philippe Bartissol</div>
                 <div class="text">wait automation is expensive</div>
             </div>
 
             <div class="dialogue">
-                <div class="character">Guillaume</div>
+                <div class="character">Guillaume Vendroux</div>
                 <div class="text">but now affordable look</div>
-            </div>
-
-            <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">so we have the quality, the delivery, remain the productivity</div>
+                <div class="text">(CFO clicks on option and invest barely move to the 2% line)</div>
+                <div class="text">so we have the quality, the planning adherence, remain the productivity</div>
             </div>
 
             <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
-                <div class="text">but we cannot invest more , remember no more that 2%</div>
+                <div class="character">Philippe Bartissol</div>
+                <div class="text">but we cannot invest more, remember no more that 2%</div>
             </div>
 
             <div class="dialogue">
-                <div class="character">Guillaume</div>
+                <div class="character">Guillaume Vendroux</div>
                 <div class="text">well you're gonna have to use your brain</div>
-            </div>
-
-            <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">How should you position them to maximize opertional time vs transit time ?</div>
-            </div>
-
-            <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
-                <div class="text">euh ? I do not know….i know Excel and ERP, not production, i do not have a manufacturing brain</div>
-            </div>
-
-            <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">You want one ?</div>
+                <div class="text">Modules of the new lines appear on the table</div>
+                <div class="text">In front of you are the production module with the chosen option.</div>
+                <div class="text action-cfo">CFO MANIPULATES THE MODULES</div>
+                <div class="text">How should you position them to maximize operational time vs transit time?</div>
             </div>
 
             <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
-                <div class="text">Want what ?</div>
+                <div class="character">Philippe Bartissol</div>
+                <div class="text">euh ? I do not know….i know Excel and ERP, not production, i do not have a manufacturing brain,</div>
             </div>
 
             <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">a Manufacturing brain?</div>
+                <div class="character">Guillaume Vendroux</div>
+                <div class="text">You want one?</div>
+            </div>
+
+            <div class="dialogue philippe">
+                <div class="character">Philippe Bartissol</div>
+                <div class="text">Want what?</div>
+            </div>
+
+            <div class="dialogue">
+                <div class="character">Guillaume Vendroux</div>
+                <div class="text">Manufacturing brain?</div>
             </div>
         </div>
     </div>
@@ -298,49 +318,63 @@
     <div id="page4" class="section">
         <div class="container">
             <div class="page-number">4/4</div>
+            
             <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
-                <div class="text">euh ?</div>
+                <div class="character">Philippe Bartissol</div>
+                <div class="text">euh?</div>
             </div>
 
             <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">clik on the W, that will give you the best manufturing brain of the company, a virtual companion that has all our knowledge capitalized.. Try</div>
+                <div class="character">Guillaume Vendroux</div>
+                <div class="text">click on W, that will give you the best manufacturing brain of the company, a virtual companion that has all our knowledge capitalized... Try</div>
             </div>
 
             <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
-                <div class="text">U layout ? To shorten distance between station…ah I get it</div>
-            </div>
-
-            <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
-                <div class="text">amazing…i never knew you could do that..</div>
+                <div class="character">Philippe Bartissol</div>
+                <div class="text">(he clicks)</div>
+                <div class="text">Ghost appears</div>
+                <div class="text">U layout? To shorten distance between station…ah I get it</div>
             </div>
 
             <div class="dialogue">
-                <div class="character">Guillaume</div>
+                <div class="character">Guillaume Vendroux</div>
+                <div class="text">position the station as outlined</div>
+            </div>
+
+            <div class="dialogue philippe">
+                <div class="character">Philippe Bartissol</div>
+				<div class="text">See and i'm just a CFO if I can do it anyone can do it</div>
+                
+            </div>
+			<div class="dialogue philippe">
+                <div class="character">Philippe Bartissol</div>
+				
+                <div class="text">here we go Chief (enthusiastic)</div>
+                
+            </div>
+
+            <div class="dialogue">
+                <div class="character">Guillaume Vendroux</div>
                 <div class="text">and yes we reach our target, look</div>
+				<div class="text">Let's verify with the simulation</div>
+                <div class="text">wait 5S - Simulation Starts</div>
+                <div class="text">This is the way the line will operate, the virtual twin of the manufacturing interacting with the virtual twin of the product to achieve the required performance</div>
             </div>
 
             <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
-                <div class="text">on time on cost and on quality !</div>
+                <div class="character">Philippe Bartissol</div>
+                <div class="text">Qcd on quality on cost on time for delivery</div>
+                
             </div>
 
             <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">indeed Virtual world for real life</div>
+                <div class="character">Guillaume Vendroux</div>
+                <div class="text">And Look it is virtual…but it is real, Virtual world for real life no paper, automation where needed, Quality control….</div>
             </div>
 
             <div class="dialogue philippe">
-                <div class="character">Philippe (CFO)</div>
-                <div class="text">(removing his mask) Ok I am convinced, let's launch this transformation but maybe we should start slowly and see wheteher indeed NIAR delivers before going WW</div>
-            </div>
-
-            <div class="dialogue">
-                <div class="character">Guillaume</div>
-                <div class="text">No you don't half transform. You do or you dont. And we have to if we want to stay in the lead.</div>
+                <div class="character">Philippe Bartissol</div>
+                <div class="text">(removing his mask)</div>
             </div>
         </div>
     </div>
